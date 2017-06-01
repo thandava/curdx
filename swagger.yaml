@@ -1,0 +1,416 @@
+swagger: '2.0'
+info:
+  description: prototype service for Service Regisrtry
+  version: 0.0.1
+  title: Service Registry
+host: 127.0.0.1
+basePath: /service_registry
+tags:
+  - name: service
+    description: End points for services
+  - name: profile
+    description: End points for profiles
+  - name: provider
+    description: End points for providers
+schemes:
+  - http
+paths:
+  /service/metadata:
+    post:
+      tags:
+        - service
+      summary: store metadata for a new service
+      description: Stores metadata for a new service
+      operationId: store_Service_Metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: metadata
+          description: service metadata object
+          required: true
+          schema:
+            $ref: '#/definitions/service_metadata'
+      responses:
+        '200':
+          description: successfully stored metadata for service
+          schema:
+            $ref: '#/definitions/response'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+    put:
+      tags:
+        - service
+      summary: update metadata for a new service
+      description: Update metadata for a new service
+      operationId: put_Service_Metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: metadata
+          description: service metadata object
+          required: true
+          schema:
+            $ref: '#/definitions/service_metadata'
+      responses:
+        '200':
+          description: successfully stored metadata for service
+          schema:
+            $ref: '#/definitions/response'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+    get:
+      tags:
+        - service
+      summary: Returns metadata of a specific service
+      description: Returns metadate of a specific service
+      operationId: get_Service_Metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successfully removed metadate for the service
+          schema:
+            $ref: '#/definitions/service_metadata'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+    delete:
+      tags:
+        - service
+      summary: Removes metadata of a specific service
+      description: Removes metadate of a specific service
+      operationId: remove_service_metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successfully removed metadata for the service
+          schema:
+            $ref: '#/definitions/response'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+  /profile/metadata:
+    post:
+      tags:
+        - profile
+      summary: store metadata for a new profile
+      description: Stores metadata for a new profile
+      operationId: store_Profile_Metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: metadata
+          description: profile metadata object
+          required: true
+          schema:
+            $ref: '#/definitions/profile_metadata'
+      responses:
+        '200':
+          description: successfully stored metadata for profile
+          schema:
+            $ref: '#/definitions/response'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+    put:
+      tags:
+        - profile
+      summary: update metadata for a profile
+      description: Update metadata for a profile
+      operationId: put_Profile_Metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: metadata
+          description: profile metadata object
+          required: true
+          schema:
+            $ref: '#/definitions/profile_metadata'
+      responses:
+        '200':
+          description: successfully stored metadata for profile
+          schema:
+            $ref: '#/definitions/response'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+    get:
+      tags:
+        - profile
+      summary: returns metadata of a specific profile
+      description: returns metadate of a specific profile
+      operationId: get_Profile_Metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successfully returns metadate for the profile
+          schema:
+            $ref: '#/definitions/profile_metadata'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+    delete:
+      tags:
+        - profile
+      summary: Removes metadata of a specific service
+      description: Removes metadate of a specific service
+      operationId: remove_Profile_Metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successfully removed metadate for the service
+          schema:
+            $ref: '#/definitions/response'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+  /provider/metadata:
+    post:
+      tags:
+        - provider
+      summary: store metadata for a new provider
+      description: Stores metadata for a new provider
+      operationId: store_provider_metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: metadata
+          description: provider metadata object
+          required: true
+          schema:
+            $ref: '#/definitions/provider_metadata'
+      responses:
+        '200':
+          description: successfully stored metadata for provider
+          schema:
+            $ref: '#/definitions/response'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+    put:
+      tags:
+        - provider
+      summary: update metadata for a new provider
+      description: Update metadata for a new provider
+      operationId: put_provider_metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: metadata
+          description: provider metadata object
+          required: true
+          schema:
+            $ref: '#/definitions/provider_metadata'
+      responses:
+        '200':
+          description: successfully stored metadata for provider
+          schema:
+            $ref: '#/definitions/response'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+    get:
+      tags:
+        - provider
+      summary: Returns metadata of a specific provider
+      description: Returns metadata of a specific provider
+      operationId: get_provider_metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successfully removed metadate for the provider
+          schema:
+            $ref: '#/definitions/provider_metadata'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+    delete:
+      tags:
+        - provider
+      summary: Removes metadata of a specific provider
+      description: Removes metadate of a specific provider
+      operationId: remove_provider_metadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successfully removed metadata for the provider
+          schema:
+            $ref: '#/definitions/response'
+        '405':
+          description: Invalid input
+          schema:
+            $ref: '#/definitions/response'
+definitions:
+  service_metadata:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      figid:
+        type: integer
+        format: int64
+      protocols:
+        type: array
+        items: {}
+  profile_metadata:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      figid:
+        type: integer
+        format: int64
+      environment:
+        type: string
+      owner_use:
+        type: string
+      app:
+        type: string
+      region:
+        type: string
+      geo:
+        type: string
+      security_zone:
+        type: integer
+        format: int64
+      provider:
+        type: string
+      country:
+        type: string
+      security_profile:
+        type: string
+      trust_worthy:
+        type: boolean
+  provider_metadata:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      figid:
+        type: integer
+        format: int64
+      protocols:
+        type: array
+        items: {}
+      environment:
+        type: string
+      owner_use:
+        type: string
+      app:
+        type: string
+      region:
+        type: string
+      geo:
+        type: string
+      security_zone:
+        type: integer
+        format: int64
+      provider:
+        type: string
+      country:
+        type: string
+      security_profile:
+        type: string
+      trust_worthy:
+        type: boolean
+  response:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
